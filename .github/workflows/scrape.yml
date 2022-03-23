@@ -17,12 +17,11 @@ jobs:
         timestamp=$(env TZ="America/New_York" date)
         curl https://display.safespace.io/value/live/a7796f34 >> occupancy.csv
         echo ", ${timestamp}" >> occupancy.csv
-    - name: Commit and push if it changed
+    - name: Commit and push if it changed 
       run: |-
-        TZ=":America/New_York" date
         git config user.name "Automated"
         git config user.email "actions@users.noreply.github.com"
         git add -A
-        timestamp=$(date)
+        timestamp=$(env TZ="America/New_York" date)
         git commit -m "Latest data: ${timestamp}" || exit 0
         git push
