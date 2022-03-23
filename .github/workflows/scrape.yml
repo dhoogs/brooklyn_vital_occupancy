@@ -16,7 +16,7 @@ jobs:
       run: |-
         timestamp=$(date -u)
         curl https://display.safespace.io/value/live/a7796f34 >> occupancy.txt
-        echo " $(timestamp)" >> occupancy.txt
+        echo " ${timestamp}" >> occupancy.txt
         echo >> occupancy.txt
     - name: Commit and push if it changed
       run: |-
